@@ -129,7 +129,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
+session_file.session
 # Spyder project settings
 .spyderproject
 .spyproject
