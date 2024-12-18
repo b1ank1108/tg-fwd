@@ -1,0 +1,17 @@
+telegram:
+  api_id: 
+  api_hash: 
+blacklist:
+  text:
+    - 请勿理会
+  keywords:
+    - x
+    - X
+channels:
+  listened_groups_id:
+    - 1231231231
+    - 2123123213
+  fwd_channels:
+    - 2342342342
+    - 2234234141
+
