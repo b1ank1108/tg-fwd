@@ -18,8 +18,7 @@ Telegram Channel Forwarder is a tool designed to forward messages between Telegr
 - Support text, images, videos, documents, and other media types
 - Message filtering with blacklist (keywords and full text matching)
 - Export channel list for easy configuration
-- Generate configuration template with channel information
-- Offline mode operation (appears offline while forwarding)
+- Offline mode operation while forwarding
 
 ### 🚀 Installation
 1. Clone the repository:
@@ -43,9 +42,7 @@ pip install -r requirements.txt
 ```bash
 python main.py --export-channels channels.json
 ```
-This will create:
-- `channels.json`: Detailed channel information
-- `channels_config.yaml`: Configuration template with channel IDs
+This will create a `channels.json` file with detailed channel information.
 
 2. Edit the configuration file:
 ```yaml
@@ -82,16 +79,12 @@ python main.py -c config.yaml
 python main.py --export-channels channels.json
 ```
 
-3. Generate configuration template:
-```bash
-python main.py --generate-template config.yaml
-```
-
 ### ⚠️ Notes
 - The bot needs to be a member of both source and target channels
 - For channels, you need to be an administrator
-- The bot will appear offline while forwarding messages
 - Messages are forwarded as they are received (real-time)
+- Media files are temporarily downloaded before forwarding
+- The bot operates in offline mode while forwarding messages
 
 ### 📋 Prerequisites
 - Python 3.7 or higher

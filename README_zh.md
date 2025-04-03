@@ -18,8 +18,7 @@ Telegram频道转发工具是一个专门用于在禁用原生转发功能时转
 - 支持文本、图片、视频、文档等多种媒体类型
 - 支持黑名单过滤（关键词和全文匹配）
 - 导出频道列表便于配置
-- 生成带频道信息的配置模板
-- 离线模式运行（转发时显示为离线）
+- 离线模式运行
 
 ### 🚀 安装方法
 1. 克隆仓库：
@@ -43,9 +42,7 @@ pip install -r requirements.txt
 ```bash
 python main.py --export-channels channels.json
 ```
-这将创建：
-- `channels.json`：详细的频道信息
-- `channels_config.yaml`：带频道ID的配置模板
+这将创建一个包含详细频道信息的 `channels.json` 文件。
 
 2. 编辑配置文件：
 ```yaml
@@ -82,11 +79,6 @@ python main.py -c config.yaml
 python main.py --export-channels channels.json
 ```
 
-3. 生成配置模板：
-```bash
-python main.py --generate-template config.yaml
-```
-
 ### 📋 基本要求
 - Python 3.7 或更高版本
 - 有效的 Telegram API 密钥（api_id 和 api_hash）
@@ -94,11 +86,10 @@ python main.py --generate-template config.yaml
 ### ⚠️ 重要说明
 - 机器人需要是源频道和目标频道的成员
 - 对于频道，需要具有管理员权限
-- 转发消息时机器人将显示为离线状态
 - 消息实时转发（收到后立即转发）
+- 媒体文件会先下载到本地，然后再上传到目标频道
+- 转发消息时以离线模式运行
 - `listened_groups_id` 和 `fwd_channels` 必须有相同的长度，且一一对应
-- 大规模使用可能导致账号被限制，请遵守 Telegram 的使用政策
-- 媒体文件会先下载到本地，然后再上传到目标频道，确保有足够的磁盘空间
 
 ### 🔍 故障排除
 如果遇到问题，请查看 `tg_fwd.log` 日志文件，其中包含详细的运行信息和错误记录。
