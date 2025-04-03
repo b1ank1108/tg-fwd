@@ -1,17 +1,36 @@
+### Telegram 转发机器人配置文件 ###
+
+# Telegram API 配置（从 https://my.telegram.org/apps 获取）
 telegram:
-  api_id: 
-  api_hash: 
+  api_id: 123456               # 你的API ID（整数）
+  api_hash: "abcdef1234567890" # 你的API Hash（字符串）
+  session_name: "tg_fwd"       # 会话文件名称，默认为 "session_file"
+
+# 黑名单配置（这些消息不会被转发）
 blacklist:
+  # 包含以下文本的消息将被过滤（部分匹配）
   text:
-    - 请勿理会
+    - "请勿转发"
+    - "广告"
+    - "禁止分享"
+  # 完全匹配以下关键词的消息将被过滤（完全匹配）
   keywords:
-    - x
-    - X
+    - "test"
+    - "测试消息"
+
+# 频道配置
 channels:
+  # 需要监听的群组/频道ID列表（使用整数ID，非@username）
+  # 可在 https://t.me/getidsbot 获取ID
   listened_groups_id:
-    - 1231231231
-    - 2123123213
+    - 1001234567890
+    - 1009876543210
+  
+  # 消息转发的目标频道ID列表（与上面的listened_groups_id一一对应）
+  # 如：listened_groups_id[0]的消息会被转发到fwd_channels[0]
   fwd_channels:
-    - 2342342342
-    - 2234234141
+    - 1002345678901
+    - 1002109876543
+
+# 注意：listened_groups_id 和 fwd_channels 必须有相同的长度
 
